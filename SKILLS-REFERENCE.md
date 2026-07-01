@@ -1,6 +1,6 @@
 # story-forge Skills Reference
 
-Your book-creation pipeline, rebuilt as a Claude Code plugin from the recovered n8n automations. Eleven skills plus three chaining commands. Claude runs each skill; small python helpers handle the deterministic glue (chunking, wordcount, file assembly).
+Your book-creation pipeline, rebuilt as a Claude Code plugin from the recovered n8n automations. Fourteen skills plus four chaining commands. Claude runs each skill; small python helpers handle the deterministic glue (chunking, wordcount, file assembly).
 
 Every consuming skill has a **dependency check**: if it needs a world, a voice, an outline, or a dossier that does not exist yet, it stops and tells you which upstream skill to run first, instead of guessing.
 
@@ -24,6 +24,25 @@ These run in order. The artifact each one produces is the input to the next.
 
 **5. outline-to-chapters.** The drafting engine. Runs the full thirteen-step chapter-generation pipeline per chapter: context-slicing selectors for plot, characters, and world; wordcount estimation; a three-part scene brief; chronology checks before and after the draft; first draft; style check; final rewrite.
 - *Needs:* an outline, a character bible, a worldbuilding sheet, and a voice spec. *Produces:* drafted chapters.
+
+---
+
+## Short-story path (scene-based, 5,000 to 7,000 words)
+
+A parallel track for short fiction. It replaces the three-stage structural expansion (character bible, worldbuilding sheet, chapter outline) with two lighter stages and a scene-based draft. Voice, de-sloppifier, and logic-check are shared with the novel pipeline unchanged.
+
+**1. short-story-dossier.** Turns a raw idea into a compact short-story-scaled dossier: the single unified effect (Poe), the one central irreversible change (Rust Hills), the protagonist's heart's desire and magic sword (Wulf Moon), a cast of 2 to 6 with moral-function slots, one POV, the conceptual hook, and the target word band. Lighter and tighter than the novel dossier; fits on two pages.
+- *Needs:* a braindump and a working title. *Produces:* the short-story dossier.
+
+**2. short-story-outline.** Maps the dossier's 8-Point Plot onto 5 to 8 scenes, each tagged with its structural job and a yes-but/no-and try/fail beat. Specifies the payload first line, the opening contract, and the ending move (one of four). Produces the Chekhov's Gun accounting. For dark-comedy and crime stories, adds a tonal-control and twist architecture pass.
+- *Needs:* a short-story dossier (from step 1). *Produces:* the scene outline. Requires human review before drafting.
+
+**3. short-story-draft.** Produces the full story prose, scene by scene (target 5,000 to 7,000 words). Enters each scene late, leaves early, applies Le Guin's crowd-and-leap compression, and locks the narrator's register (critical for deadpan dark comedy). Uses the voice spec if present; anchors to the dossier's genre and tone signal if absent.
+- *Needs:* the scene outline (from step 2), the short-story dossier (from step 1), and optionally a voice spec. *Produces:* the story draft.
+
+Then hand off to **de-sloppifier** and **logic-check** exactly as in the novel pipeline.
+
+**/story-forge:short-story.** The full short-story chain: voice (optional) → short-story-dossier → short-story-outline → short-story-draft → de-sloppifier → logic-check.
 
 ---
 
@@ -60,6 +79,8 @@ These do not need the pipeline. Each just needs its own input text.
 Commands wire skills together so you run a whole stage with one call.
 
 **/story-forge:full-book.** The whole pipeline end to end: voice, then braindump-to-dossier, then dossier-to-outline, then outline-to-chapters, passing artifacts between steps.
+
+**/story-forge:short-story.** The full short-story pipeline: voice (optional), then short-story-dossier, then short-story-outline, then short-story-draft, then de-sloppifier, then logic-check. Produces one complete 5,000 to 7,000 word story.
 
 **/story-forge:edit-pass.** The editing chain on a draft: de-sloppifier, then logic-check.
 
