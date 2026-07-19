@@ -146,6 +146,44 @@ Quote the original passage (which is the output from Pass 2). Apply only the fla
 
 ---
 
+## The 13 Edit Moves (Author-Pass Doctrine)
+
+Extracted from a 131-edit author hand-pass (2026-07-18) on a full manuscript. These are line-edit rules that operate above the three passes; apply them during Pass 2 and Pass 3 analysis. Each move is a flag category.
+
+1. **Kill narrator-on-narration meta.** Any sentence where the narrator narrates the telling itself: why they are telling you, how they feel about telling you, what the telling means, or a restatement of a beat that already landed. The scene is the evidence; cut the closing argument. Exception: keep the move only when its comparison object is concrete and specific, never vague.
+2. **One figure per beat.** Keep the first or best simile; delete second-order and cute similes. If a plain verb does the work, the simile dies entirely. Replacements must be shorter and meaner than what they replace.
+3. **First-beat rule.** When an image lands, stop. Cut the unfolding clauses that re-describe it and the trailing recap clause that re-runs the imagery at a paragraph's end.
+4. **Name the noun.** No "thing/something" where a specific noun exists. Violence gets its real verb. Numbers get sharpened, not hedged.
+5. **Split at the pivot.** Break comma-chained cumulative sentences at the turn. Let the payoff stand as its own short sentence. Fragments and one-word paragraphs are legal.
+6. **Plainer or crueler, never fancier.** Swap toward the word a person would actually say, or the crueler exact word. Contract. Prefer the blunt verb.
+7. **Concrete props over abstractions.** Give stated facts a body: replace "I did X" summary with the specific gesture; upgrade generic props with specs and wear; add stage business to dialogue beats.
+8. **Dialogue does the work.** Where narration summarizes a speaker, let them speak. Narration must never duplicate what a line of dialogue already carries.
+9. **Motif flourishes from established coinage only.** When a paragraph needs a button, reach for a motif the book already owns, never new imagery invented on the spot.
+10. **Aphorism discipline.** An aphorism must contain a concrete mechanism and be proved by the scene around it. Generic-clever dies; crude-concrete lives. An aphorism must never grade itself ("the truest thing," "the realest part"). One per scene, maximum.
+11. **Antithesis density cap.** Never cut the first reversal in a paragraph; always cut the third. Licensed rhetorical excess survives at lower density, not zero.
+12. **Performance chronology.** Put beats in the order the room experiences them. Isolate stage directions as their own short paragraphs. The mirror/button beat comes after the full picture is assembled.
+13. **Emotional summary after the emotion landed is padding.** If the scene produced the feeling, the sentence explaining the feeling gets cut.
+
+### Banned Families (flag in Pass 2/3, both as words and as patterns)
+
+- **"Ledger" and order/counting meta-narration.** The word "ledger" is banned outright. So is any framing of the telling itself as ordered, kept, counted, or accounted. Exemption: a character counting concrete real objects for plot reasons is fine; the META framing is the tell.
+- **The chest-cold family.** Emotion or object + "sat/settled/sits" + body location, and "cold" as an emotion descriptor (cold dread, went cold). Exemption: physical cold (weather, a morgue) is untouched.
+- **Held-breath shorthand.** "Held its breath / let the breath out" as emotional shorthand. Ration hard; near-zero.
+- **Garment-generic "coat."** Where a garment is generic set-dressing, name a specific garment (jacket, mittens, scarf), or cut the garment entirely. Exemption: garments doing plot or character work.
+- **Cross-voice idiom contamination.** In multi-POV work, each narrator's exclusive idiom families must not leak into the other's narration. Flag any borrowed signature construction.
+
+### Census, Judge, Apply (the sweep pattern)
+
+Any banned-family or repeated-word sweep runs in three separate steps, never one:
+
+1. **Census:** flag every instance mechanically (grep/scan). No judgment yet.
+2. **Judge:** rule each hit in its voice context. Some hits are load-bearing (plot objects, character garments, physical cold, deliberate withholds).
+3. **Apply:** implement only the judged edits.
+
+**Protected classes come first.** Before any vague-word or hedge sweep, tag the deliberate withholds and reveal machinery (a narrator refusing to name a thing the book has not revealed yet is design, not slop). A sweep that cannot tell a withhold from a hedge destroys reveal ladders.
+
+---
+
 ## Chunking
 
 Use `scripts/chunk.py` to split input text into ~1500-word chunks on paragraph boundaries, run all three passes per chunk, then reassemble.

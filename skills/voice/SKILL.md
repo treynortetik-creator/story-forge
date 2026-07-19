@@ -118,6 +118,28 @@ Tell the user:
 
 ---
 
+## Draft-Time Doctrine (Write Like the Edit)
+
+Fold these into every generated style sheet's do/avoid checklist, alongside the sample-derived rules. They come from a 131-edit author hand-pass (2026-07-18) and encode what a line edit would otherwise have to remove. A spec that carries them produces drafts that need less surgery.
+
+1. Never narrate the narration (no "the truest thing," no "I want you to understand," no explaining why the telling matters).
+2. One figure per beat; no cute similes; a plain verb beats a simile that outweighs its noun.
+3. Stop when the image lands; no re-describing clauses, no end-of-paragraph imagery recap.
+4. Name the noun; no vague "thing/something" hedges; violence gets its real verb.
+5. Split at the pivot; payoffs get their own short sentence; fragments legal.
+6. Diction plainer or crueler, never fancier.
+7. Concrete props over abstractions; declared acts get a hand doing them.
+8. Dialogue does the work; narration never duplicates what a line already carries.
+9. Flourishes come from the story's established coinage, never fresh ornament.
+10. An aphorism needs a concrete mechanism proved by its scene; it never grades itself; one per scene.
+11. Keep the first rhetorical reversal in a paragraph, cut the third (antithesis density cap).
+12. Order beats in performance chronology, the order the room experiences them.
+13. No emotional summary after the emotion already landed.
+
+**Banned families (state them in dimension 12/13 territory of the sheet):** the word "ledger" and any order/counting meta-narration (concrete counts of real objects are exempt); emotion sitting/settling in the chest + "cold" as an emotion descriptor (physical cold exempt); "held breath" as emotional shorthand; generic "coat" as default garment (name the specific garment or cut it; plot/character garments exempt); in multi-POV work, no cross-voice idiom leakage between narrators.
+
+---
+
 ## Related Craft Notes (Reference, Do Not Duplicate)
 
 These wiki notes govern how the voice spec is used downstream. Do not copy their content into the spec file; link or reference them:

@@ -334,6 +334,24 @@ The word "implement" is deliberate. "Rewrite" triggers the model to start from s
 
 See [[anti-slop]] for why each constraint exists. The three-method humanization stack is: voice injection (voice spec feeds Step 10), constraint prompting (the rules above), and multi-pass deslop (the [[de-sloppifier]] skill, run separately after all chapters are drafted).
 
+**Draft-Time Doctrine (write like the edit).** Include this block in the Step 10 prompt context. Extracted from a 131-edit author hand-pass (2026-07-18); it encodes what a line edit would otherwise cut, so the draft never contains it:
+
+1. Never narrate the narration (no "the truest thing," no explaining why the telling matters, no restating a beat that landed).
+2. One figure per beat; no cute similes; replacements shorter and meaner.
+3. Stop when the image lands; no re-describing clauses, no end-of-paragraph imagery recap.
+4. Name the noun; no vague "thing/something" hedges; violence gets its real verb.
+5. Split at the pivot; payoffs get their own short sentence; fragments legal.
+6. Diction plainer or crueler, never fancier.
+7. Concrete props over abstractions; declared acts get a hand doing them; props get specs and wear.
+8. Dialogue does the work; narration never duplicates what a line already carries.
+9. Flourishes come from the story's established coinage, never fresh ornament.
+10. An aphorism needs a concrete mechanism proved by its scene; it never grades itself; one per scene.
+11. Keep the first rhetorical reversal in a paragraph, cut the third (antithesis density cap).
+12. Order beats in performance chronology, the order the room experiences them.
+13. No emotional summary after the emotion already landed.
+
+Banned families (in addition to [[banned-words]]): the word "ledger" and any order/counting meta-narration (a character counting concrete real objects is exempt); emotion sitting/settling in the chest + "cold" as an emotion descriptor (physical cold exempt); "held breath" as emotional shorthand; generic "coat" as default garment (name the specific garment or cut it; plot/character garments exempt); in multi-POV books, each narrator's exclusive idiom families stay in their own chapters.
+
 ---
 
 ### Step 11: Chronology Check 2 (Post-Draft)

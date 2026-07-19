@@ -31,9 +31,23 @@ Look for a story bible file (produced by the `dossier-to-outline` skill: dossier
 
 ---
 
+## Step 1.5: Author-Diff Taste Extraction (Conditional)
+
+Before any machine editing, ask: does the author have hand-edited passages of this manuscript (a marked-up file, a partial pass, tracked changes)? If yes:
+
+1. Diff the author's version against the base text.
+2. Reverse-engineer the taste: classify every edit into moves (what gets cut, what gets swapped, what gets added back), note what the author leaves alone, and write the result down as a short doctrine block before proceeding.
+3. The extracted doctrine OVERRIDES the skills' default rules wherever they conflict. The author's hand is the ground truth for this manuscript; the pipeline's job is to apply that taste at scale, not its own.
+
+If no author hand-edits exist, skip this step and proceed with the skills' defaults (which already encode the 13 author-pass edit moves; see the de-sloppifier skill).
+
+---
+
 ## Step 2: Run the de-sloppifier skill
 
 Run the de-sloppifier skill on `$ARGUMENTS`.
+
+**Sweep discipline (census, judge, apply).** Any banned-word, banned-family, or repetition sweep inside this step runs in three separate stages: census (flag every instance mechanically, no judgment), judge (rule each hit in its voice context; load-bearing hits survive), apply (implement only the judged edits). Before any vague-word or hedge sweep, tag the PROTECTED class first: deliberate withholds and reveal machinery (a narrator refusing to name a thing the book has not revealed yet is design, not slop). Never run a blind find-and-replace.
 
 The skill uses `story-forge/chunk.py` to split the file into chunks of roughly 1500 words on paragraph boundaries, runs all three passes on each chunk in order (Pass 1: pacing and paragraph structure; Pass 2: line editing; Pass 3: slop removal), then reassembles the output. Follow the skill's own chunking instructions exactly.
 
@@ -60,6 +74,18 @@ Run the logic-check skill on the deslopped file from Step 2, passing the story b
 The skill runs the Full Six-Category Audit (premise logic, character-world fit, worldbuilding coherence, plot setup plausibility, convenience flags, and specific fixes). If the input is a scene brief or chapter draft, it also runs the Chapter Chronology Layer.
 
 Follow the logic-check skill's own dependency check at the top of that skill. If it surfaces any additional missing prereqs beyond the story bible, stop and report them.
+
+---
+
+## Step 4.5: Post-Wave Repeat Scan
+
+Edit waves introduce repeats, especially when chunks or chapters were edited in parallel: independent editors converge on the same replacement phrasing. After all edits are applied:
+
+1. Scan the edited text for repeated distinctive phrases (shared n-grams of 4+ words across chunks/chapters; a diff against the pre-edit text isolates what the wave ADDED).
+2. Triage the hits: ritual refrains and deliberate echoes are design; identical fresh phrasing appearing in two or more places the wave touched is a defect.
+3. Fix the defects and re-scan. Target: the wave introduces zero new repeats.
+
+Do not skip this on multi-chunk runs. A clean per-chunk edit can still produce a dirty book.
 
 ---
 
