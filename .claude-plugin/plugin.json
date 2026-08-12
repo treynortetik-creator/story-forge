@@ -1,10 +1,19 @@
 {
   "name": "story-forge",
-  "description": "Treynor's book-creation pipeline as Claude Code skills: braindump-to-dossier, outlining, story-hacking, drafting, and editing/de-sloppifying. Recovered from the n8n book-automation workflows and chainable into full-book workflows. Claude is the orchestrator; python handles the deterministic glue.",
-  "version": "0.1.0",
+  "description": "Treynor's book-creation pipeline as Claude Code skills: braindump-to-dossier, outlining, story-hacking, drafting, and editing/de-sloppifying. Recovered from the n8n book-automation workflows and chainable into full-book workflows. Claude is the orchestrator; python handles the deterministic glue. Includes clean-export, a final pass that strips invisible provenance characters without altering a word.",
+  "version": "0.2.0",
   "author": {
     "name": "Treynor Tetik"
   },
   "license": "MIT",
-  "keywords": ["writing", "fiction", "book-pipeline", "story-hacker", "editing", "anti-slop", "outlining", "drafting"]
+  "keywords": [
+    "writing",
+    "fiction",
+    "book-pipeline",
+    "story-hacker",
+    "editing",
+    "anti-slop",
+    "outlining",
+    "drafting"
+  ]
 }

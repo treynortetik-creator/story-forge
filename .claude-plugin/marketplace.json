@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "story-forge-dev",
+  "description": "Local development marketplace for story-forge — Treynor's book-creation pipeline.",
+  "owner": {
+    "name": "Treynor Tetik"
+  },
+  "plugins": [
+    {
+      "name": "story-forge",
+      "description": "Book-creation pipeline as Claude Code skills: braindump-to-dossier, outlining, story-hacking, drafting, de-sloppifying, and a final clean-export pass that strips invisible provenance characters. Claude orchestrates; Python handles the deterministic glue.",
+      "version": "0.2.0",
+      "source": "./",
+      "author": {
+        "name": "Treynor Tetik"
+      },
+      "category": "writing",
+      "license": "MIT",
+      "keywords": ["writing", "fiction", "book-pipeline", "story-hacker", "editing", "anti-slop", "outlining", "drafting", "provenance"]
+    }
+  ]
+}

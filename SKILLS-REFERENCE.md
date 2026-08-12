@@ -89,3 +89,26 @@ Commands wire skills together so you run a whole stage with one call.
 ---
 
 *Tip: the individual skills hold the real prompts and run one transform each. The commands are the orchestration layer that chains them. You can always invoke a single skill directly when you only need that one step.*
+
+## clean-export
+
+**Final export pass.** Strips invisible provenance characters — zero-width, bidi controls, Unicode
+TAG payloads (`U+E0000–E007F`, where a whole hidden ASCII message can live), and exotic spaces
+normalised to plain spaces. **Never alters a word**: it computes a canonical form of input and
+output and refuses to write if anything outside its target set differs.
+
+Preserves ZWJ + variation selectors by default so emoji don't break (`--strip-emoji-glue` to remove).
+
+```bash
+python3 skills/clean-export/scripts/clean_text.py draft.md                    # report only
+python3 skills/clean-export/scripts/clean_text.py draft.md -o draft.clean.md
+python3 skills/clean-export/scripts/clean_text.py chapters/ -o out/
+```
+
+⚠️ It does **not** remove statistical/token-choice watermarks (Claude's, from 2026-08-02). Those
+require rewriting the text with a model, which for fiction re-slops prose the de-sloppifier just
+cleaned. The de-slop + hand-edit pipeline already degrades that signal, and improves the writing
+while doing it.
+
+Runs **last**: braindump → dossier → outline → draft → story-hacker → de-sloppifier → edit-pass →
+**clean-export**.
